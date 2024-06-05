@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   handle_pointer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 23:22:40 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:26:12 by ariling          ###   ########.fr       */
+/*   Created: 2024/06/05 23:34:13 by ariling           #+#    #+#             */
+/*   Updated: 2024/06/05 23:34:14 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "ft_printf.h"
 
-char	*ft_itoa_base(unsigned int value, const char *base)
+int	handle_pointer(va_list args)
 {
+	unsigned long	ptr;
 	char			*str;
-	unsigned int	base_len;
-	unsigned int	tmp;
 	int				len;
 
-	base_len = strlen(base);
-	tmp = value;
-	len = 1;
-	while (tmp != 0)
-	{
-		tmp /= base_len;
-		len++;
-	}
-	str = (char *)malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = base[value % base_len];
-		value /= base_len;
-	}
-	return (str);
+	ptr = va_arg(args, unsigned long);
+	str = ft_itoa_ptr(ptr);
+	ft_putstr_fd(str, 1);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_ptr.c                                      :+:      :+:    :+:   */
+/*   handle_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 23:22:37 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:26:07 by ariling          ###   ########.fr       */
+/*   Created: 2024/06/05 23:34:17 by ariling           #+#    #+#             */
+/*   Updated: 2024/06/05 23:34:18 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_printf.h"
 
-char	*ft_itoa_ptr(unsigned long ptr)
+int	handle_string(va_list args)
 {
-	char			*str;
-	unsigned long	tmp;
-	int				len;
+	char	*str;
 
-	tmp = ptr;
-	len = 2;
-	while (tmp != 0)
+	str = va_arg(args, char *);
+	if (str)
 	{
-		tmp /= 16;
-		len++;
+		ft_putstr_fd(str, 1);
+		return (ft_strlen(str));
 	}
-	str = (char *)malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (len-- > 2)
+	else
 	{
-		str[len] = "0123456789abcdef"[ptr % 16];
-		ptr /= 16;
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	str[0] = '0';
-	str[1] = 'x';
-	return (str);
 }

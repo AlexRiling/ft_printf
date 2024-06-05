@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   handle_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 23:22:40 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:26:12 by ariling          ###   ########.fr       */
+/*   Created: 2024/06/05 23:34:01 by ariling           #+#    #+#             */
+/*   Updated: 2024/06/05 23:35:22 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include "ft_printf.h"
 
-char	*ft_itoa_base(unsigned int value, const char *base)
+int	handle_hex(va_list args, char format)
 {
+	unsigned int	num;
 	char			*str;
-	unsigned int	base_len;
-	unsigned int	tmp;
 	int				len;
 
-	base_len = strlen(base);
-	tmp = value;
-	len = 1;
-	while (tmp != 0)
-	{
-		tmp /= base_len;
-		len++;
-	}
-	str = (char *)malloc(len + 1);
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = base[value % base_len];
-		value /= base_len;
-	}
-	return (str);
+	num = va_arg(args, unsigned int);
+	if (format == 'x')
+		str = ft_itoa_base(num, "0123456789abcdef");
+	else
+		str = ft_itoa_base(num, "0123456789ABCDEF");
+	ft_putstr_fd(str, 1);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
 }

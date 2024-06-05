@@ -2,7 +2,7 @@
 NAME = libftprintf.a
 
 # Source files for ft_printf
-SRC = ft_printf.c ft_itoa_unsigned.c ft_itoa_base.c ft_itoa_ptr.c
+SRC = ft_printf.c handle_char.c handle_string.c handle_int.c handle_unsigned.c handle_hex.c handle_pointer.c handle_percent.c ft_itoa_unsigned.c ft_itoa_base.c ft_itoa_ptr.c
 OBJ = $(SRC:.c=.o)
 
 # Directory and target for libft

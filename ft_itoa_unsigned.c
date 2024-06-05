@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_unsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/05 23:22:33 by ariling           #+#    #+#             */
+/*   Updated: 2024/06/05 23:33:54 by ariling          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 char	*ft_itoa_unsigned(unsigned int n)
@@ -8,8 +20,11 @@ char	*ft_itoa_unsigned(unsigned int n)
 
 	len = 1;
 	tmp = n;
-	while (tmp /= 10)
+	while (tmp != 0)
+	{
+		tmp /= 10;
 		len++;
+	}
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
