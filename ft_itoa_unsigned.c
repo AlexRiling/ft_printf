@@ -6,7 +6,7 @@
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:33 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:33:54 by ariling          ###   ########.fr       */
+/*   Updated: 2024/06/05 23:56:06 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_itoa_unsigned(unsigned int n)
 	int				len;
 	unsigned int	tmp;
 
-	len = 1;
+	len = (n == 0) ? 1 : 0;
 	tmp = n;
 	while (tmp != 0)
 	{

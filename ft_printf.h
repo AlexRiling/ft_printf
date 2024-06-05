@@ -6,7 +6,7 @@
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:25 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:33:01 by ariling          ###   ########.fr       */
+/*   Updated: 2024/06/05 23:55:28 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 int		ft_printf(const char *format, ...);
-char	*ft_itoa(int n); // Declaration for ft_itoa from libft
+char	*ft_itoa(int n);
 char	*ft_itoa_unsigned(unsigned int n);
 char	*ft_itoa_base(unsigned int value, const char *base);
 char	*ft_itoa_ptr(unsigned long ptr);

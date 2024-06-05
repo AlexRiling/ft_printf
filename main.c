@@ -6,7 +6,7 @@
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:21 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:37:19 by ariling          ###   ########.fr       */
+/*   Updated: 2024/06/06 00:01:41 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(void)
 	len = ft_printf("Decimal: %d\n", 42);
 	len = ft_printf("Integer: %i\n", -42);
 	len = ft_printf("Unsigned: %u\n", 42);
-	len = ft_printf("Hex lowercase: %x\n", 255);
-	len = ft_printf("Hex uppercase: %X\n", 255);
+	len = ft_printf("Hex lowercase: %x\n", 1);
+	len = ft_printf("Hex uppercase: %X\n", 10);
 	len = ft_printf("Pointer: %p\n", &x);
 	return (0);
 }
