@@ -6,11 +6,11 @@
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:37 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:26:07 by ariling          ###   ########.fr       */
+/*   Updated: 2024/08/14 21:38:48 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_printf.h"
 
 char	*ft_itoa_ptr(unsigned long ptr)
 {

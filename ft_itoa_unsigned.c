@@ -6,25 +6,32 @@
 /*   By: ariling <ariling@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 23:22:33 by ariling           #+#    #+#             */
-/*   Updated: 2024/06/05 23:56:06 by ariling          ###   ########.fr       */
+/*   Updated: 2024/08/14 22:19:26 by ariling          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdlib.h>
+
+static int	calculate_len(unsigned int n)
+{
+	int	len;
+
+	len = 1;
+	while (n >= 10)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
 
 char	*ft_itoa_unsigned(unsigned int n)
 {
-	char			*str;
-	int				len;
-	unsigned int	tmp;
+	char	*str;
+	int		len;
 
-	len = (n == 0) ? 1 : 0;
-	tmp = n;
-	while (tmp != 0)
-	{
-		tmp /= 10;
-		len++;
-	}
+	len = calculate_len(n);
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
