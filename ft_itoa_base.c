@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
+#include ft_printf.h
 
 char	*ft_itoa_base(unsigned int value, const char *base)
 {
@@ -20,7 +19,7 @@ char	*ft_itoa_base(unsigned int value, const char *base)
 	unsigned int	tmp;
 	int				len;
 
-	base_len = strlen(base);
+	base_len = ft_strlen(base);
 	tmp = value;
 	len = 0;
 	if (value == 0)
